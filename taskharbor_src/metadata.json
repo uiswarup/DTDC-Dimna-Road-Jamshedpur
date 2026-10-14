@@ -1,0 +1,6 @@
+{
+  "name": "TaskHarbor Banner Minimalist",
+  "description": "Minimalist pure black banner design regenerated with DM Sans font and pure white text matching reference layout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

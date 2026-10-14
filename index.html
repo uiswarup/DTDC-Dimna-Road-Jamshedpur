@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" data-glass="high">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DTDC Express Logistics • Seamless Scroll Journey</title>
+  <meta name="description" content="Pioneering express logistics with 10,000+ global locations, franchise network, LTL shipping, and DTDC WorldWyde international coverage.">
+  
+  <!-- Google Fonts: DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="scroll-progress-bar" class="scroll-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- Ambient Cinematic Background Lighting -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Background 3D Sequence Canvas -->
+  <canvas id="animation-canvas" aria-hidden="true"></canvas>
+
+  <!-- Sticky Top Frosted Glass Navbar -->
+  <header class="header-container">
+    <nav class="glass-pill-nav" aria-label="Main Navigation">
+      <div class="nav-glow-layer"></div>
+
+      <!-- DTDC Brand Logo -->
+      <a href="#hero" class="brand-logo" aria-label="DTDC Home">
+        <svg class="dtdc-logo-svg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" fill="#ffffff" font-family="'DM Sans', sans-serif" font-weight="900" font-size="24" font-style="italic" letter-spacing="-1">
+            DTDC
+          </text>
+          <rect x="74" y="14" width="8" height="8" fill="#ef4444" rx="1.5" />
+        </svg>
+      </a>
+
+      <!-- Navigation Menu Items -->
+      <ul class="nav-menu">
+        <li><a href="#hero" class="nav-link active">Services</a></li>
+        <li><a href="#why-us" class="nav-link">Why Choose Us</a></li>
+        <li><a href="#worldwyde" class="nav-link">WorldWyde</a></li>
+        <li><a href="#ltl" class="nav-link">LTL Freight</a></li>
+        <li><a href="#contact" class="nav-link">Support & Feedback</a></li>
+      </ul>
+
+      <!-- CTA Button -->
+      <div class="nav-cta-wrapper">
+        <a href="#why-us" class="cta-pill-button">
+          <span>Explore</span>
+          <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Floating Right Quick Navigation Indicator -->
+  <aside class="quick-nav" aria-label="Page Sections Navigation">
+    <button class="quick-nav-dot active" data-target="hero" title="Hero Overview" aria-label="Scroll to Hero"></button>
+    <button class="quick-nav-dot" data-target="why-us" title="Why Choose Us" aria-label="Scroll to Why Us"></button>
+    <button class="quick-nav-dot" data-target="worldwyde" title="DTDC WorldWyde" aria-label="Scroll to WorldWyde"></button>
+    <button class="quick-nav-dot" data-target="ltl" title="LTL Freight Solutions" aria-label="Scroll to LTL Freight"></button>
+    <button class="quick-nav-dot" data-target="contact" title="Contact & Feedback" aria-label="Scroll to Contact"></button>
+  </aside>
+
+  <!-- Floating Studio Controls Button (Bottom Right) -->
+  <div class="studio-trigger-container">
+    <button id="studio-toggle-btn" class="studio-toggle-btn" aria-expanded="false" aria-controls="studio-drawer">
+      <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+      <span id="studio-btn-label">Studio Controls</span>
+    </button>
+  </div>
+
+  <!-- Floating Settings Drawer -->
+  <div id="studio-drawer" class="studio-drawer hidden" aria-hidden="true">
+    <div class="studio-header">
+      <h3 class="studio-title">Banner Studio Controls</h3>
+      <button id="studio-close-btn" class="icon-btn" aria-label="Close studio controls">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="studio-body">
+      <label class="studio-label">Glassmorphism Transparency</label>
+      <div class="transparency-switcher">
+        <button class="trans-btn" data-level="subtle">Subtle</button>
+        <button class="trans-btn" data-level="medium">Medium</button>
+        <button class="trans-btn active" data-level="high">High</button>
+      </div>
+
+      <div class="studio-actions">
+        <button id="copy-html-btn" class="studio-action-btn">
+          <svg id="copy-icon" class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+          </svg>
+          <span id="copy-text">Copy Page HTML</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Modal for 'Who We Are' and 'Vision & Mission' -->
+  <div id="info-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div id="modal-icon-container" class="modal-icon-badge"></div>
+          <div>
+            <h2 id="modal-title" class="modal-heading">Who We Are</h2>
+            <p id="modal-subheading" class="modal-sub">DTDC Corporate Overview</p>
+          </div>
+        </div>
+        <button id="modal-close-btn" class="icon-btn" aria-label="Close dialog">
+          <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+
+      <div id="modal-body-content" class="modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="modal-footer">
+        <button id="modal-secondary-action" class="btn-subtle">Back to Home</button>
+        <button id="modal-primary-action" class="btn-primary">View Vision & Mission</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN SCROLLABLE CONTENT WRAPPER -->
+  <main id="main-content" class="main-content-flow">
+
+    <!-- ==================== SECTION 1: HERO BANNER ==================== -->
+    <section id="hero" class="scroll-section hero-section active-view" data-index="0">
+      <div class="section-inner hero-inner">
+        
+        <!-- Top Pill Badge -->
+        <div class="hero-badge-pill">
+          <svg class="icon icon-sm text-accent-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          <span>India’s Leading Integrated Express Logistics Provider</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="hero-headline">
+          Every parcel is <span class="text-gradient-muted">someone’s promise</span><br class="desktop-break">
+          and we deliver on it.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtext">
+          Pioneering the franchise-based model with the largest number of access points in India and a growing international network, we are committed to reaching every doorstep.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-action-buttons">
+          <button id="btn-who-we-are" class="glass-action-btn">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            <span>Who We Are</span>
+          </button>
+          
+          <button id="btn-vision-mission" class="glass-action-btn">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span>Our Vision & Mission</span>
+          </button>
+        </div>
+
+        <!-- Subtle Scroll Down Indicator -->
+        <div class="scroll-indicator" aria-hidden="true">
+          <span class="scroll-indicator-text">Scroll to explore</span>
+          <div class="scroll-mouse-wheel">
+            <div class="wheel-dot"></div>
+          </div>
+        </div>
+
+        <!-- Section Metadata Badge -->
+        <div class="section-footer-badge">
+          <span>Section 1 • Hero Banner</span>
+          <span class="dot-separator">•</span>
+          <span>DM Sans Font</span>
+          <span class="dot-separator">•</span>
+          <span>Pure White Text</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 2: WHY SHOULD YOU CHOOSE US ==================== -->
+    <section id="why-us" class="scroll-section" data-index="1">
+      <div class="section-inner">
+        <div class="section-header text-center">
+          <div class="category-tag">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            <span>Unmatched Reliability</span>
+          </div>
+          <h2 class="section-title">
+            Why Should You <span class="highlight-red">Choose</span> Us
+          </h2>
+          <p class="section-subtitle">
+            Backed by decades of expertise, unmatched network coverage, and relentless dedication to every delivery.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <!-- Main Hero Stat Card -->
+          <div class="glass-card stat-card-featured">
+            <div class="card-icon-badge">
+              <svg class="icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </div>
+            <div class="stat-number">10,000+</div>
+            <h3 class="stat-heading">Locations Over the Globe</h3>
+            <p class="stat-description">
+              Seamless domestic and international connectivity ensuring your shipments move swiftly across borders, metros, and remote villages.
+            </p>
+          </div>
+
+          <!-- Secondary Stat Cards Column -->
+          <div class="stat-column">
+            <!-- Channel Partners -->
+            <div class="glass-card stat-card-row">
+              <div class="card-icon-badge">
+                <svg class="icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div class="stat-text-content">
+                <div class="stat-number">16,500+</div>
+                <h3 class="stat-heading">Channel Partners</h3>
+                <p class="stat-description">
+                  A wide network of customer access points across India that covers 96% of the Indian population with local touchpoints.
+                </p>
+              </div>
+            </div>
+
+            <!-- Global Destinations -->
+            <div class="glass-card stat-card-row">
+              <div class="card-icon-badge">
+                <svg class="icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="stat-text-content">
+                <div class="stat-number">220+</div>
+                <h3 class="stat-heading">Global Destinations</h3>
+                <p class="stat-description">
+                  Connecting India to the world with reliable international shipping solutions and door-to-door express delivery.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-footer-badge">
+          <span>Section 2 • Network & Statistics</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 3: WHAT IS DTDC WORLDWYDE? ==================== -->
+    <section id="worldwyde" class="scroll-section" data-index="2">
+      <div class="section-inner">
+        <div class="glass-card centerpiece-card">
+          <div class="centerpiece-pill">
+            <svg class="icon icon-sm spin-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+              <path d="M2 12h20"/>
+            </svg>
+            <span>Global Reach</span>
+          </div>
+
+          <h2 class="centerpiece-title">What is DTDC WorldWyde?</h2>
+
+          <p class="centerpiece-description">
+            DTDC WorldWyde stands with every Global Indian, connecting families, students, and businesses across <span class="highlight-underline">220+ destinations</span> worldwide. Whether it’s love from home or business across borders, we make international shipping seamless, reliable, affordable, and always within your reach.
+          </p>
+
+          <div class="centerpiece-quote-box">
+            <span class="quote-text">“Global Reach, Indian Touch.”</span>
+          </div>
+        </div>
+
+        <div class="section-footer-badge">
+          <span>Section 3 • DTDC WorldWyde</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 4: WHAT IS LTL SHIPPING? ==================== -->
+    <section id="ltl" class="scroll-section" data-index="3">
+      <div class="section-inner">
+        <div class="glass-card centerpiece-card">
+          <div class="centerpiece-pill">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+              <path d="M15 18H9"/>
+              <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+              <circle cx="17" cy="18.5" r="2.5"/>
+              <circle cx="7" cy="18.5" r="2.5"/>
+            </svg>
+            <span>Cost-Effective Freight</span>
+          </div>
+
+          <h2 class="centerpiece-title">What is LTL Shipping?</h2>
+
+          <p class="centerpiece-description">
+            Less-than-Truckload (LTL) Shipping is a cost-effective logistics solution for businesses that need to transport smaller shipments without booking an entire truck. With DTDC’s LTL services, your cargo shares space with other shipments, ensuring you pay only for the space you use.
+          </p>
+
+          <div class="centerpiece-quote-box">
+            <span class="quote-text">“Freight Solutions Designed To Fit Your Shipment.”</span>
+          </div>
+        </div>
+
+        <div class="section-footer-badge">
+          <span>Section 4 • LTL Freight Solutions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 5: CONTACT US & FEEDBACK ==================== -->
+    <section id="contact" class="scroll-section" data-index="4">
+      <div class="section-inner">
+        <div class="section-header text-center">
+          <div class="category-tag">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>24/7 Dedicated Support</span>
+          </div>
+          <h2 class="section-title">Get in Touch with Us</h2>
+          <p class="section-subtitle">We are here to assist with every shipment inquiry, partnership, and feedback.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Contact Info Card -->
+          <div class="glass-card contact-info-card">
+            <div>
+              <h3 class="contact-card-title">Contact Us</h3>
+              
+              <div class="contact-methods-list">
+                <!-- Phone -->
+                <div class="contact-item">
+                  <div class="contact-icon-box">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="contact-meta-label">Call Support</div>
+                    <div class="contact-meta-value">093343 37452</div>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-item">
+                  <div class="contact-icon-box">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2"/>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="contact-meta-label">Email Support</div>
+                    <div class="contact-meta-value">customersupport@dtdc.com</div>
+                  </div>
+                </div>
+
+                <!-- Address -->
+                <div class="contact-item">
+                  <div class="contact-icon-box">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="contact-meta-label">Address</div>
+                    <div class="contact-meta-value">Room No. 2, Transport Nagar Campus, Dimna Chowk, Transport Nagar, Mango, Jamshedpur, Jharkhand 831012</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="brand-subtext-box">
+              <span class="subtext-accent">DTDC Express Ltd.</span>
+              <span>Delivering across 220+ countries with trust and precision.</span>
+            </div>
+          </div>
+
+          <!-- Right Interactive Feedback Form Card -->
+          <div class="glass-card feedback-form-card">
+            <div class="form-header">
+              <h3 class="form-title">We Value Your Feedback</h3>
+              <p class="form-subtitle">Help us improve by sharing your experience with our services.</p>
+            </div>
+
+            <!-- Feedback Submitted State -->
+            <div id="form-success-box" class="form-success-state hidden">
+              <div class="success-icon-badge">
+                <svg class="icon icon-lg text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"/>
+                </svg>
+              </div>
+              <h4 class="success-title">Thank You for Your Feedback!</h4>
+              <p class="success-desc">Your query has been submitted successfully. Our support team will connect with you shortly.</p>
+              <button id="reset-form-btn" class="btn-primary">Submit Another Query</button>
+            </div>
+
+            <!-- Actual Interactive Form -->
+            <form id="dtdc-feedback-form" class="dtdc-form">
+              <div class="form-row-two">
+                <div class="form-group">
+                  <label class="form-label" for="inp-name">Name <span class="required">*</span></label>
+                  <input type="text" id="inp-name" required placeholder="Enter Your Name" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="inp-email">Email Address <span class="required">*</span></label>
+                  <input type="email" id="inp-email" required placeholder="Enter Your Email ID" class="form-input">
+                </div>
+              </div>
+
+              <div class="form-row-two">
+                <div class="form-group">
+                  <label class="form-label" for="inp-mobile">Mobile Number <span class="required">*</span></label>
+                  <input type="tel" id="inp-mobile" required placeholder="Enter Your Mobile Number" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="sel-user-type">I'm an Existing <span class="required">*</span></label>
+                  <select id="sel-user-type" class="form-select">
+                    <option value="Customer">Customer</option>
+                    <option value="Franchise Partner">Franchise Partner</option>
+                    <option value="Corporate Client">Corporate Client</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row-two">
+                <div class="form-group">
+                  <label class="form-label" for="sel-query-type">Raise a Query for <span class="required">*</span></label>
+                  <select id="sel-query-type" class="form-select">
+                    <option value="Select">Select Category</option>
+                    <option value="Shipment Delay">Shipment Delay</option>
+                    <option value="Pickup Request">Pickup Request</option>
+                    <option value="Billing & Rates">Billing & Rates</option>
+                    <option value="Tracking Assistance">Tracking Assistance</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="inp-shipment">Shipment Number <span class="required">*</span></label>
+                  <input type="text" id="inp-shipment" required placeholder="Enter Shipment Number" class="form-input">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="txt-description">Description <span class="required">*</span></label>
+                <textarea id="txt-description" rows="3" required placeholder="Write Your Query in Detail..." class="form-textarea"></textarea>
+              </div>
+
+              <div class="form-submit-row">
+                <div class="captcha-group">
+                  <div class="captcha-badge" id="captcha-display">73XUTF</div>
+                  <input type="text" id="inp-captcha" required placeholder="Enter captcha" class="captcha-input">
+                </div>
+
+                <button type="submit" class="submit-button">
+                  <span>SUBMIT NOW</span>
+                  <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m22 2-7 20-4-9-9-4Z"/>
+                    <path d="M22 2 11 13"/>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="section-footer-badge">
+          <span>Section 5 • Contact Us & Feedback</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SITE FOOTER ==================== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-col-brand">
+          <div class="brand-logo footer-logo">
+            <svg class="dtdc-logo-svg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="28" fill="#ffffff" font-family="'DM Sans', sans-serif" font-weight="900" font-size="24" font-style="italic" letter-spacing="-1">
+                DTDC
+              </text>
+              <rect x="74" y="14" width="8" height="8" fill="#ef4444" rx="1.5" />
+            </svg>
+          </div>
+          <p class="footer-copy">
+            DTDC Express Logistics • All Sections (Hero, Why Us, WorldWyde, LTL Shipping, Contact & Feedback).
+          </p>
+        </div>
+
+        <div class="footer-col-right">
+          <div class="footer-tag">Fully Glossy Transparent Glassmorphism • Pure Black & White</div>
+          <div class="footer-copyright">© 2026 DTDC Express Ltd. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
